@@ -19,7 +19,7 @@ app.use(express.static('public')); // enable serving files from public
 app.use(express.json()); // enable reading incoming json data
 
 app.get('/api/items', (req, res) => {
-    const showAll = (req.query.show && req.query.show.toUpperCase() === 'all');
+    const showAll = (req.query.show && req.query.show.toLowerCase() === 'all');
     const where = showAll ? '' : 'WHERE inactive = FALSE';
     
     client.query(`

@@ -13,6 +13,7 @@ body {
     background: url('/public/assets/anime-background.jpg') no-repeat center center fixed;
     background-size: cover;
     line-height: 1.75em;
+    font-weight: bold;
 }
 
 * {
@@ -43,7 +44,7 @@ h1 {
 header img {
     height: 200px;
     width: auto;
-    margin-left: -10px;
+    margin-left: -20px;
     margin-top: 10px;
 }
 

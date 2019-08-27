@@ -13,13 +13,13 @@
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Covered+By+Your+Grace|Patrick+Hand+SC|Shadows+Into+Light|Sue+Ellen+Francisco&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- <header>
+    <header>
         <img src="assets/nose-picker.gif" alt="Nose Picker Gif" />
         <h1>TO DO, LATER, LIST</h1>
-    </header> -->
+    </header>
 
     <main>
-        <!-- <ul>
+        <ul>
             <li class="to-do">
                 <span class="${item.inactive ? 'inactive' : ''}">Take Out Trash</span>
                 <div>
@@ -45,7 +45,7 @@
             </li>
 
             <li class="to-do">
-                <span class="${item.inactive ? 'inactive' : ''}">Do The Dishes</span>
+                <span class="${item.inactive ? 'inactive' : ''}">Wash The Dishes</span>
                 <div>
                     <button class="inactive-button">
                         Mark As Complete
@@ -56,7 +56,19 @@
                 </div>
             </li>
 
-        </ul> -->
+            <li class="to-do">
+                <span class="${item.inactive ? 'inactive' : ''}">Clean The Litter Box</span>
+                <div>
+                    <button class="inactive-button">
+                        Mark As Complete
+                    </button>
+                    <button class="remove-button">
+                        <img class="trash-icon" src="assets/trash.png" alt="trash icon" />
+                    </button>
+                </div>
+            </li>
+
+        </ul>
     </main>
 
     <script type="module" src="src/to-do.js"></script>
