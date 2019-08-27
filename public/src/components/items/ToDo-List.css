@@ -42,6 +42,12 @@ form {
     height: 40px;
 }
 
+.add-button:hover {
+    transition: transform 100ms ease-in-out;
+    box-shadow: 3px 3px 6px rgba(114, 113, 113, 0.5);
+    transform: translate3d(-1.5px, 1.5px, 0);
+}
+
 div {
     display: flex;
     flex-direction: row;
