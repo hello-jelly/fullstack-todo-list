@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Covered+By+Your+Grace|Patrick+Hand+SC|Shadows+Into+Light|Sue+Ellen+Francisco&display=swap');
+
+/* font-family: 'Shadows Into Light', cursive;
+font-family: 'Amatic SC', cursive;
+font-family: 'Covered By Your Grace', cursive;
+font-family: 'Sue Ellen Francisco', cursive;
+font-family: 'Patrick Hand SC', cursive; */
+
+div {
+    display: flex;
+    flex-direction: row;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-justify: center;
+    background-color: rgba(255, 255, 255, 0.85);
+    width: 700px;
+    height: auto;
+    margin: auto;
+    padding: 40px;
+}
+
+.inactive-button {
+    background: black;
+    color: white;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 0.9em;
+}
+
+.remove-button {
+    background: transparent;
+    border: transparent;
+    height: 35px;
+    padding: -5px;
+}
+
+.trash-icon {
+    width: 30px;
+}
