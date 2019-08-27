@@ -13,10 +13,12 @@ test('renders', assert => {
 
     const expected = /*html*/`
         <li class="to-do">
-            Laundry
+            <span class="">Laundry</span>
             <div>
-                <button class="inactive-button"> Mark As Complete </button>
-                <button class="remove-button"> 🗑 </button>
+                <button class="inactive-button"> Make Inactive </button>
+                <button class="remove-button">
+                    <img class="trash-icon" src="assets/trash.png" alt="trash icon" />
+                </button>
             </div>
         </li>
     `;
@@ -33,16 +35,18 @@ test('renders', assert => {
     // arrange
     const item = {
         id: 14,
-        name: 'Make The Bed',
+        name: 'Clean The Litter Box',
         inactive: true
     };
 
     const expected = /*html*/`
         <li class="to-do">
-            Make The Bed
+            <span class="inactive">Clean The Litter Box</span>
             <div>
                 <button class="inactive-button"> Make Active </button>
-                <button class="remove-button"> 🗑 </button>
+                <button class="remove-button">
+                    <img class="trash-icon" src="assets/trash.png" alt="trash icon" />
+                </button>
             </div>
         </li>
     `;

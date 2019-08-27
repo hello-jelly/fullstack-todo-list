@@ -42,13 +42,13 @@ app.get('/api/items', (req, res) => {
 });
 
 app.post('/api/items', (req, res) => {
-    const type = req.body;
+    const item = req.body;
     client.query(`
         INSERT INTO items (name)
         VALUES ($1)
         RETURNING *;
     `,
-    [type.name]
+    [item.name]
     )
         .then(result => {
             res.json(result.rows[0]);
@@ -56,7 +56,7 @@ app.post('/api/items', (req, res) => {
         .catch(err => {
             if(err.code === '23505') {
                 res.status(400).json({
-                    error: `Type "${type.name}" already exists`
+                    error: `Item "${item.name}" already exists`
                 });
             }
             res.status(500).json({
