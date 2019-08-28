@@ -70,7 +70,7 @@ export function signUp(user) {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(credentials)
+        body: JSON.stringify(user)
     });
 }
 
