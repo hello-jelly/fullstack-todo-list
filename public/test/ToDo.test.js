@@ -17,7 +17,7 @@ test('renders', assert => {
             <div class="buttons">
                 <button class="inactive-button"> Make Inactive </button>
                 <button class="remove-button">
-                    <img class="trash-icon" src="assets/trash.png" alt="trash icon" />
+                    🗑
                 </button>
             </div>
         </li>
@@ -45,7 +45,7 @@ test('renders', assert => {
             <div class="buttons">
                 <button class="inactive-button"> Make Active </button>
                 <button class="remove-button">
-                    <img class="trash-icon" src="assets/trash.png" alt="trash icon" />
+                    🗑
                 </button>
             </div>
         </li>
