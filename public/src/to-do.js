@@ -1,4 +1,4 @@
-import ToDoApp from './components/app/App.js';
+import App from './components/app/App.js';
 
-const app = new ToDoApp();
+const app = new App();
 document.body.prepend(app.renderDOM());

@@ -5,7 +5,7 @@ class Header extends Component {
         return /*html*/`
         <header>
             <img src="assets/nose-picker.gif" alt="Nose Picker Gif" />
-            <h1>TO DO, LATER, LIST</h1>
+            <h1>To Do...Later</h1>
         </header>
         `;
     }
