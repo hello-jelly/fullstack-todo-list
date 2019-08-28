@@ -75,8 +75,7 @@ class ToDoListApp extends Component {
         return /*html*/`
             <div>
                 <!-- header goes here -->
-                <main>
-                </main>
+                <main></main>
             </div>
         `;
     }

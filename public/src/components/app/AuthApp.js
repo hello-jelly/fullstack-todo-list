@@ -1,10 +1,10 @@
 import Component from '../Component.js';
-import ToDoList from './ToDoListApp.js';
+import Header from './Header,js';
 
 class App extends Component {
 
     onRender(dom) {
-        const header = new ToDoList();
+        const header = new Header();
         dom.prepend(header.renderDOM());
     }
 

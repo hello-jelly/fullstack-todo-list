@@ -14,6 +14,7 @@ class ItemForm extends Component {
             const itemType = {
                 name: input.value
             };
+            console.log(itemType);
 
             error.textContent = '';
 
@@ -33,7 +34,7 @@ class ItemForm extends Component {
             <section class="form">
                 <form>
                     <label for="title">Create A New Task: </label>
-                    <input class="add-input" type="text" required placeholder="i.e. Do Homework">
+                    <input class="add-input" type="text" name="type" required placeholder="i.e. Do Homework">
                     <button class="add-button">Add</button>
                 </form>
                 <p class="error"></p>

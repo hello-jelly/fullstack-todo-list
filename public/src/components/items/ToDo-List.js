@@ -1,5 +1,5 @@
 import Component from '../Component.js';
-import ToDo from './ToDo.js.js';
+import ToDo from './ToDo.js';
 
 class ToDoList extends Component {
     
