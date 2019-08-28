@@ -43,7 +43,6 @@ app.get('/api/items', (req, res) => {
 
 app.post('/api/items', (req, res) => {
     const item = req.body;
-    console.log(item);
     client.query(`
         INSERT INTO items (name)
         VALUES ($1)
@@ -69,6 +68,7 @@ app.post('/api/items', (req, res) => {
 app.put('/api/items/:id', (req, res) => {
     const id = req.params.id;
     const item = req.body;
+    
 
     client.query(`
         UPDATE items

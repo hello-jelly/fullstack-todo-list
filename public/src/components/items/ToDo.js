@@ -27,7 +27,7 @@ class ToDo extends Component {
         return /*html*/`
             <li class="to-do">
                 <span class="${item.inactive ? 'inactive' : ''}">${item.name}</span>
-                <div>
+                <div class="buttons">
                     <button class="inactive-button">
                         Make ${item.inactive ? 'Active' : 'Inactive'}
                     </button>

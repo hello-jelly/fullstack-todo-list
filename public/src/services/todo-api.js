@@ -5,8 +5,8 @@ const URL = '/api';
 const token = store.getToken();
 if(!token && location.pathname !== '/auth.html') {
     const searchParams = new URLSearchParams();
-    // searchParams.set('redirect', location.pathname);
-    // location = `auth.html?${searchParams.toString()}`;
+    searchParams.set('redirect', location.pathname);
+    location = `auth.html?${searchParams.toString()}`;
 }
 
 function fetchWithError(url, options) {
@@ -35,7 +35,6 @@ export function getItems(options) {
 }
 
 export function addItem(item) {
-    console.log(JSON.stringify(item));
     const url = `${URL}/items`;
     return fetchWithError(url, {
         method: 'POST',
@@ -51,7 +50,7 @@ export function updateItem(item) {
     return fetchWithError(url, {
         method: 'PUT',
         headers: {
-            'Content-Item': 'application/json',
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify(item)
     });
