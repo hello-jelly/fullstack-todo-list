@@ -33,7 +33,7 @@ class SignIn extends Component {
                 </p>
 
                 <p>
-                    <button>Sign In:</button>
+                    <button>Sign In</button>
                 </p>
             </form>
         `;
