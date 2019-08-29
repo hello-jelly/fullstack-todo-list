@@ -10,7 +10,7 @@ const client = require('./lib/client');
 
 // Database Client
 client.connect();
-
+console.log('test');
 // Auth
 const ensureAuth = require('./lib/auth/ensure-auth');
 const createAuthRoutes = require('./lib/auth/create-auth-routes');
