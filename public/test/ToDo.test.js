@@ -12,12 +12,7 @@ test('renders', assert => {
     };
 
     const expected = /*html*/`
-        <li class="to-do"> Laundry 
-            <div> 
-                <button class="inactive-button"> Mark As Complete </button>
-                <button class="remove-button"> 🗑 </button> 
-            </div> 
-        </li>
+    <li class="to-do"> <span class="">Laundry</span> <div class="buttons"> <button class="inactive-button"> Make Inactive </button> <button class="remove-button"> <img class="trash-icon" src="assets/trash.png" alt="trash icon" /> </button> </div> </li>
     `;
 
     // act
@@ -28,7 +23,7 @@ test('renders', assert => {
     assert.htmlEqual(html, expected);
 });
 
-test('renders', assert => {
+test('renders iuvbhj', assert => {
     // arrange
     const item = {
         id: 14,
@@ -37,12 +32,7 @@ test('renders', assert => {
     };
 
     const expected = /*html*/`
-        <li class="to-do"> Make The Bed 
-            <div> 
-                <button class="inactive-button"> Make Active </button>
-                <button class="remove-button"> 🗑 </button> 
-            </div> 
-        </li>
+    <li class="to-do"> <span class="inactive">Make The Bed</span> <div class="buttons"> <button class="inactive-button"> Make Active </button> <button class="remove-button"> <img class="trash-icon" src="assets/trash.png" alt="trash icon" /> </button> </div> </li>
     `;
 
     // act
