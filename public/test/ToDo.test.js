@@ -12,14 +12,14 @@ test('renders', assert => {
     };
 
     const expected = /*html*/`
-        <li class="to-do">
-            <span class="">Laundry</span>
-            <div>
-                <button class="inactive-button"> Make Inactive </button>
-                <button class="remove-button">
-                    <img class="trash-icon" src="assets/trash.png" alt="trash icon" />
-                </button>
-            </div>
+        <li class="to-do"> 
+            <span class="">Laundry</span> 
+            <div class="buttons"> 
+            <button class="inactive-button"> Make Inactive </button> 
+            <button class="remove-button"> 
+                <img class="trash-icon" src="assets/trash.png" alt="trash icon" /> 
+            </button> 
+            </div> 
         </li>
     `;
 
@@ -42,7 +42,7 @@ test('renders', assert => {
     const expected = /*html*/`
         <li class="to-do">
             <span class="inactive">Clean The Litter Box</span>
-            <div>
+            <div class="buttons">
                 <button class="inactive-button"> Make Active </button>
                 <button class="remove-button">
                     <img class="trash-icon" src="assets/trash.png" alt="trash icon" />
