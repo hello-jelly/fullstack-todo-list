@@ -25,6 +25,11 @@ class SignUp extends Component {
         return /*html*/`
             <form class="auth-form standard">
                 <p>
+                    <label for="name">UserName:</label>
+                    <input id="signup-name" type="name" name="name" required>
+                </p>
+
+                <p>
                     <label for="signup-email">Email:</label>
                     <input id="signup-email" type="email" name="email" required placeholder="you@somewhere.com">
                 </p>
