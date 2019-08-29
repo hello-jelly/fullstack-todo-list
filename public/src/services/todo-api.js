@@ -20,7 +20,8 @@ function fetchWithError(url, options) {
         .then(response => {
             if(response.ok) {
                 return response.json();
-            } else {
+            }
+            else {
                 return response.json().then(json => {
                     throw json.error;
                 });

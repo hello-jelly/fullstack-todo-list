@@ -1,16 +1,26 @@
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC|Covered+By+Your+Grace|Patrick+Hand+SC|Shadows+Into+Light|Sue+Ellen+Francisco&display=swap');
 
-form {
+.first-form {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    background: black;
-    margin-bottom: 20px;
-    color: white;
-    padding: 10px;
+    align-content: center;
+    text-justify: center;
+    background-color: rgba(255, 255, 255, 0.85);
     width: 700px;
+    height: auto;
     margin: auto;
+    padding: 30px;
+}
+
+#signin-container {
+    margin: auto;
+    margin-top: -50px;
+}
+
+#signup-container {
+    margin: auto;
+    margin-top: -50px;
 }
 
 button {
@@ -49,6 +59,6 @@ main p.switch, main p.errors {
     color: rgb(255, 0, 157);
 }
 
-.no-display {
+.hidden {
     display: none;
 }

@@ -49,21 +49,19 @@ class AuthApp extends Component {
                     });
             }
         });
-        signInContainer.appendChild(signIn.renderDOM());
+        signInContainer.prepend(signIn.renderDOM());
 
         const switchToSignIn = dom.querySelector('#signin-button');
         switchToSignIn.addEventListener('click', () => {
-            signInContainer.classList.remove('no-display');
-            signUpContainer.classList.add('no-display');
+            signInContainer.classList.remove('hidden');
+            signUpContainer.classList.add('hidden');
         });
         
-        const switchToSignUp = dom.querySelector('#signup-button');
+        const switchToSignUp = dom.querySelector('#signin-button');
         switchToSignUp.addEventListener('click', () => {
             signUpContainer.classList.remove('no-display');
             signInContainer.classList.add('no-display');
         });
-
-
     }
 
     renderHTML() {
@@ -71,17 +69,20 @@ class AuthApp extends Component {
             <div>
                 <!-- header goes here -->
                 <main>
-                    <p class="errors"></p>
-                    <section class="no-display" id="signup-container">
-                        <p class="switch">
-                            <button id="signin-button">Already a User?</button>
-                        </p>
-                    </section>
-                    <section id="signin-container">
-                        <p class="switch">
-                            <button id="signup-button">Need to create an Account?</button>
-                        </p>
-                    </section>
+                    <div class="first-form">
+                        <p class="errors"></p>
+                        <section class="hidden" id="signup-container">
+                            <p class="switch">
+                                <a id="signin-button">Already a User?</a>
+                            </p>
+                        </section>
+
+                        <section id="signin-container">
+                            <p class="switch"></p>
+                                <button id="signup-button">Need to create an Account?</button>
+                            </p>
+                        </section>
+                    </div>
                 </main>
             </div>
         `;

@@ -14,7 +14,6 @@ class ItemForm extends Component {
             const itemType = {
                 name: input.value
             };
-            console.log(itemType);
 
             error.textContent = '';
 

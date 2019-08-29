@@ -1,23 +1,17 @@
-/* eslint-disable no-unused-vars */
 // Load Environment Variables from the .env file
 require('dotenv').config();
 
-// Application Dependencies
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const client = require('./lib/client');
 
-// Database Client
-client.connect();
-console.log('test');
-// Auth
 const ensureAuth = require('./lib/auth/ensure-auth');
 const createAuthRoutes = require('./lib/auth/create-auth-routes');
 const authRoutes = createAuthRoutes({
     selectUser(email) {
         return client.query(`
-            SELECT id, email, hash, display_name as "displayName" 
+            SELECT id, email, hash, display_name as "displayName"
             FROM users
             WHERE email = $1;
         `,
@@ -35,31 +29,28 @@ const authRoutes = createAuthRoutes({
     }
 });
 
-// Application Setup
 const app = express();
 const PORT = process.env.PORT;
-app.use(morgan('dev')); // http logging
-app.use(cors()); // enable CORS request
-app.use(express.static('public')); // enable serving files from public
-app.use(express.json()); // enable reading incoming json data
+app.use(morgan('dev'));
+app.use(cors());
+app.use(express.static('public'));
+app.use(express.json());
 
-// // setup authentication routes
-// app.use('/api/auth', authRoutes);
-// app.use('/api', ensureAuth);
+app.use('/api/auth', authRoutes);
+app.use('/api', ensureAuth);
 
 app.get('/api/items', (req, res) => {
-    const showAll = (req.query.show && req.query.show.toLowerCase() === 'all');
-    const where = showAll ? '' : 'WHERE inactive = FALSE';
-    
     client.query(`
         SELECT
             id,
             name,
-            inactive
+            complete
         FROM items
-        ${where}
+        WHERE user_id = $1
         ORDER BY name;
-    `)
+    `,
+    [req.userId]
+    )
         .then(result => {
             res.json(result.rows);
         })
@@ -67,17 +58,19 @@ app.get('/api/items', (req, res) => {
             res.status(500).json({
                 error: err.message || err
             });
-        });   
+        });
 });
 
 app.post('/api/items', (req, res) => {
     const item = req.body;
+    console.log(req);
+
     client.query(`
-        INSERT INTO items (name)
-        VALUES ($1)
+        INSERT INTO items (name, user_id)
+        VALUES ($1, $2)
         RETURNING *;
     `,
-    [item.name]
+    [item.name, req.userId]
     )
         .then(result => {
             res.json(result.rows[0]);
@@ -85,28 +78,28 @@ app.post('/api/items', (req, res) => {
         .catch(err => {
             if(err.code === '23505') {
                 res.status(400).json({
-                    error: `Item "${item.name}" already exists`
+                    error: `"${item.name}" is already on the list!`
                 });
             }
             res.status(500).json({
                 error: err.message || err
             });
-        }); 
+        });
 });
 
 app.put('/api/items/:id', (req, res) => {
     const id = req.params.id;
     const item = req.body;
-    
 
     client.query(`
         UPDATE items
-        SET    name = $2,
-            inactive = $3
-        WHERE  id = $1
+        SET name = $2,
+            complete = $3
+        WHERE id = $1
+        AND user_id = $4
         RETURNING *;
     `,
-    [id, item.name, item.inactive]
+    [id, item.name, item.complete, req.userId]
     )
         .then(result => {
             res.json(result.rows[0]);
@@ -114,13 +107,13 @@ app.put('/api/items/:id', (req, res) => {
         .catch(err => {
             if(err.code === '23505') {
                 res.status(400).json({
-                    error: `Item "${item.name}" already exists`
+                    error: `"${item.name}" is already on the list!`
                 });
             }
             res.status(500).json({
                 error: err.message || err
             });
-        }); 
+        });
 });
 
 app.delete('/api/items/:id', (req, res) => {
@@ -128,10 +121,11 @@ app.delete('/api/items/:id', (req, res) => {
 
     client.query(`
         DELETE FROM items
-        WHERE  id = $1
+        WHERE id = $1
+        AND user_id = $2
         RETURNING *;
     `,
-    [id]
+    [id, req.userId]
     )
         .then(result => {
             res.json(result.rows[0]);
@@ -139,13 +133,13 @@ app.delete('/api/items/:id', (req, res) => {
         .catch(err => {
             if(err.code === '23503') {
                 res.status(400).json({
-                    error: `Could not remove, item is in use. Make inactive or delete all entries with that item first.`
+                    error: `Could not remove, item is in use. Mark complete or delete first.`
                 });
             }
             res.status(500).json({
                 error: err.message || err
             });
-        }); 
+        });
 });
 
 app.get('/api/test', (req, res) => {
@@ -154,7 +148,6 @@ app.get('/api/test', (req, res) => {
     });
 });
 
-// Start the server
 app.listen(PORT, () => {
     console.log('server running on PORT', PORT);
 });
