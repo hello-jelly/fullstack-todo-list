@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // Load Environment Variables from the .env file
 require('dotenv').config();
 
