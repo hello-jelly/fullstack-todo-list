@@ -3,9 +3,9 @@
 .first-form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-content: center;
-    text-justify: center;
+    /* text-justify: center; */
     background-color: rgba(255, 255, 255, 0.85);
     width: 700px;
     height: auto;

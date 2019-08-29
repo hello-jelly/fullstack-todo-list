@@ -57,10 +57,10 @@ class AuthApp extends Component {
             signUpContainer.classList.add('hidden');
         });
         
-        const switchToSignUp = dom.querySelector('#signin-button');
+        const switchToSignUp = dom.querySelector('#signup-button');
         switchToSignUp.addEventListener('click', () => {
-            signUpContainer.classList.remove('no-display');
-            signInContainer.classList.add('no-display');
+            signUpContainer.classList.remove('hidden');
+            signInContainer.classList.add('hidden');
         });
     }
 
@@ -73,7 +73,7 @@ class AuthApp extends Component {
                         <p class="errors"></p>
                         <section class="hidden" id="signup-container">
                             <p class="switch">
-                                <a id="signin-button">Already a User?</a>
+                                <button id="signin-button">Already a User?</button>
                             </p>
                         </section>
 
