@@ -23,8 +23,8 @@ class SignIn extends Component {
         return /*html*/`
             <form class="auth-form standard">
                 <p>
-                    <label for="signin-name">UserName:</label>
-                    <input id="signin-name" type="name" name="name" required>
+                    <label for="signin-email">UserName:</label>
+                    <input id="signin-email" type="email" name="email" required>
                 </p>
 
                 <p>

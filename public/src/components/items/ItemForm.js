@@ -31,10 +31,11 @@ class ItemForm extends Component {
     renderHTML() {
         return /*html*/`
             <section class="form">
-                <form>
+                <form class="add-form">
                     <label for="title">Create A New Task: </label>
                     <input class="add-input" type="text" name="type" required placeholder="i.e. Do Homework">
                     <button class="add-button">Add</button>
+                    <button id="log-out">Logout</button>
                 </form>
                 <p class="error"></p>
             </section>

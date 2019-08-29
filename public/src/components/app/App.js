@@ -3,15 +3,15 @@ import ToDoList from './ToDoListApp.js';
 import Header from './Header.js';
 import ItemForm from '../items/ItemForm.js';
 import store from '../../services/store.js';
-import { getItems, addItem, updateItem, removeItem } from '../../services/list-api.js';
+import { getItems, addItem, updateItem, removeItem } from '../../services/todo-api.js';
 
 
 class App extends Component {
 
     onRender(dom) {
+        const main = dom.querySelector('main');
         const header = new Header();
         dom.prepend(header.renderDOM());
-        const main = dom.querySelector('main');
 
         const itemForm = new ItemForm({
             onAdd: item => {
@@ -75,7 +75,6 @@ class App extends Component {
         return /*html*/`
         <div>
             <main>
-            <button id="log-out">Logout</button>
             </main>
         </div>
         `;

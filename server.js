@@ -44,7 +44,7 @@ app.get('/api/items', (req, res) => {
         SELECT
             id,
             name,
-            complete
+            inactive
         FROM items
         WHERE user_id = $1
         ORDER BY name;
@@ -94,12 +94,12 @@ app.put('/api/items/:id', (req, res) => {
     client.query(`
         UPDATE items
         SET name = $2,
-            complete = $3
+            inactive = $3
         WHERE id = $1
         AND user_id = $4
         RETURNING *;
     `,
-    [id, item.name, item.complete, req.userId]
+    [id, item.name, item.inactive, req.userId]
     )
         .then(result => {
             res.json(result.rows[0]);
@@ -133,7 +133,7 @@ app.delete('/api/items/:id', (req, res) => {
         .catch(err => {
             if(err.code === '23503') {
                 res.status(400).json({
-                    error: `Could not remove, item is in use. Mark complete or delete first.`
+                    error: `Could not remove, item is in use. Mark inactive or delete first.`
                 });
             }
             res.status(500).json({

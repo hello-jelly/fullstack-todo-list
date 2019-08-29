@@ -7,24 +7,24 @@ import { getItems, addItem, updateItem, removeItem } from '../../services/todo-a
 class ToDoListApp extends Component {
 
     onRender(dom) {
-        const header = new Header({ title: 'To Do...Later' });
-        dom.prepend(header.renderDOM());
+        // const header = new Header({ title: 'To Do...Later' });
+        // dom.prepend(header.renderDOM());
         
         const main = dom.querySelector('main');
 
-        const itemForm = new ItemForm({
-            onAdd: item => {
-                // part 1: do work on the server
-                return addItem(item)
-                    .then(saved => {
-                        // part 2: integrate back into our list
-                        const items = this.state.items;
-                        items.push(saved);
-                        itemList.update({ items });
-                    });
-            }
-        });
-        main.appendChild(itemForm.renderDOM());
+        // const itemForm = new ItemForm({
+        //     onAdd: item => {
+        //         // part 1: do work on the server
+        //         return addItem(item)
+        //             .then(saved => {
+        //                 // part 2: integrate back into our list
+        //                 const items = this.state.items;
+        //                 items.push(saved);
+        //                 itemList.update({ items });
+        //             });
+        //     }
+        // });
+        // main.appendChild(itemForm.renderDOM());
 
         const itemList = new ToDoList({ 
             items: [],
