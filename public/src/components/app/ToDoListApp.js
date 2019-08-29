@@ -1,8 +1,6 @@
 import Component from '../Component.js';
-import Header from './Header.js';
-import ItemForm from '../items/ItemForm.js';
 import ToDoList from '../items/ToDo-List.js';
-import { getItems, addItem, updateItem, removeItem } from '../../services/todo-api.js';
+import { getItems, updateItem, removeItem } from '../../services/todo-api.js';
 
 class ToDoListApp extends Component {
 
@@ -11,20 +9,6 @@ class ToDoListApp extends Component {
         // dom.prepend(header.renderDOM());
         
         const main = dom.querySelector('main');
-
-        // const itemForm = new ItemForm({
-        //     onAdd: item => {
-        //         // part 1: do work on the server
-        //         return addItem(item)
-        //             .then(saved => {
-        //                 // part 2: integrate back into our list
-        //                 const items = this.state.items;
-        //                 items.push(saved);
-        //                 itemList.update({ items });
-        //             });
-        //     }
-        // });
-        // main.appendChild(itemForm.renderDOM());
 
         const itemList = new ToDoList({ 
             items: [],
