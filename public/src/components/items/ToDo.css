@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Covered+By+Your+Grace|Patrick+Hand+SC|Shadows+Into+Light|Sue+Ellen+Francisco&display=swap');
+
+.to-do {
+    display: flex;
+    padding: 10px 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    font-family: 'Amatic SC', cursive;
+}
+
+.inactive {
+    text-decoration: line-through;
+}
